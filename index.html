@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Abhishek 🎉</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Playfair Display + Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       CANVAS: Fireworks & Confetti Background
+  ============================================================ -->
+  <canvas id="fireworksCanvas"></canvas>
+
+  <!-- ============================================================
+       SECTION 1: Opening / Intro Screen
+  ============================================================ -->
+  <section id="intro-screen">
+    <!-- Floating stars background -->
+    <div id="stars-container"></div>
+    <!-- Fireflies -->
+    <div id="fireflies-container"></div>
+
+    <div class="intro-content">
+      <p class="intro-line" id="line1"></p>
+      <p class="intro-line" id="line2"></p>
+      <p class="intro-line intro-main" id="line3"></p>
+      <button id="surprise-btn" class="glow-btn hidden">
+        <span class="btn-text">Open Your Surprise ✨</span>
+        <span class="btn-glow"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SECTION 2: Main Birthday Page (hidden until button clicked)
+  ============================================================ -->
+  <main id="main-page" class="hidden">
+
+    <!-- Floating background particles -->
+    <div id="hearts-container"></div>
+    <div id="balloons-container"></div>
+
+    <!-- ── HERO ─────────────────────────────────────────── -->
+    <section class="hero-section glass-section" id="hero">
+      <div class="hero-inner">
+        <div class="cake-wrapper">
+          <!-- 3-layer birthday cake -->
+          <div class="cake" id="mainCake">
+            <div class="cake-layer layer-top">
+              <div class="candles-row">
+                <div class="candle" data-blown="false"><span class="flame"></span><span class="smoke hidden"></span></div>
+                <div class="candle" data-blown="false"><span class="flame"></span><span class="smoke hidden"></span></div>
+                <div class="candle" data-blown="false"><span class="flame"></span><span class="smoke hidden"></span></div>
+              </div>
+              <div class="icing top-icing"></div>
+            </div>
+            <div class="cake-layer layer-mid">
+              <div class="icing mid-icing"></div>
+              <span class="cake-text">Happy Birthday</span>
+            </div>
+            <div class="cake-layer layer-bot">
+              <div class="icing bot-icing"></div>
+              <span class="cake-name">Abhishek</span>
+            </div>
+            <div class="cake-plate"></div>
+          </div>
+          <p class="wish-text" id="wishText">Click a candle to make a wish! 🕯️</p>
+        </div>
+
+        <div class="hero-text">
+          <h1 class="hero-title">Happy Birthday<br/><span class="name-glow">Abhishek</span> 🎂</h1>
+          <p class="hero-sub">Mere Jigri Yaar, Mere Bhai ❤️</p>
+          <div class="age-badge">
+            <span class="age-number" id="ageCounter">🎊</span>
+            <span class="age-label">Today's the Big Day!</span>
+          </div>
+          <!-- Friendship Counter -->
+          <div class="friendship-counter glass-card">
+            <div class="counter-icon">🤝</div>
+            <div class="counter-info">
+              <span class="counter-num" id="friendshipDays">0</span>
+              <span class="counter-label">Days of Friendship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Gift boxes -->
+      <div id="gifts-container"></div>
+    </section>
+
+    <!-- ── PHOTO GALLERY ────────────────────────────────── -->
+    <section class="section gallery-section" id="gallery">
+      <div class="section-header">
+        <h2 class="section-title">Our Memories 📸</h2>
+        <p class="section-sub">Every picture tells our story</p>
+      </div>
+      <div class="gallery-hearts" id="galleryHearts"></div>
+
+      <!-- 3D Carousel -->
+      <div class="carousel-wrapper">
+        <div class="carousel" id="photoCarousel">
+          <!-- 20 photo cards injected by JS -->
+        </div>
+        <button class="carousel-btn prev" id="prevBtn">&#8249;</button>
+        <button class="carousel-btn next" id="nextBtn">&#8250;</button>
+      </div>
+
+      <!-- Lightbox -->
+      <div id="lightbox" class="lightbox hidden">
+        <button id="closeLightbox">✕</button>
+        <img id="lightboxImg" src="" alt="Memory" />
+      </div>
+    </section>
+
+    <!-- ── LETTER ────────────────────────────────────────── -->
+    <section class="section letter-section" id="letter">
+      <div class="section-header">
+        <h2 class="section-title">A Letter For You 💌</h2>
+      </div>
+      <div class="envelope-wrapper">
+        <div class="envelope" id="envelope" onclick="openEnvelope()">
+          <div class="envelope-flap"></div>
+          <div class="envelope-body">
+            <div class="envelope-seal">❤️</div>
+            <p class="envelope-label">Open This Letter Abhishek ❤️</p>
+          </div>
+        </div>
+        <!-- Letter content (hidden until opened) -->
+        <div class="letter-paper hidden" id="letterPaper">
+          <div class="letter-lines">
+            <p class="letter-greeting">Dear Abhishek,</p>
+           <p>Happy Birthday mere bhai ❤️</p>
+
+<p>Yaar, dosti to bahut logon se hoti hai,<br/>
+lekin tere jaisa dost kismat walon ko milta hai.<br/>
+Tu mere liye sirf dost nahi, bhai hai.</p>
+
+<p>College ke woh funny moments,<br/>
+woh shararatein, woh hasi-mazaak,<br/>
+aur har musibat me saath khade rehna,<br/>
+ye sab yaadein hamesha dil me rahengi.</p>
+
+<p>Jab bhi zindagi ne mushkil raste dikhaye,<br/>
+tu har baar mere saath khada mila.<br/>
+Isi liye teri dosti meri zindagi ki sabse keemti cheezon me se ek hai.</p>
+
+<p>Main dua karta hu ki teri har khwahish puri ho,<br/>
+teri zindagi khushiyon se bhari rahe,<br/>
+aur tu hamesha isi tarah hasta-muskurata rahe.</p>
+
+<p>Waqt badal sakta hai, log badal sakte hain,<br/>
+lekin meri dua hai ki hamari dosti kabhi na badle. ♾️❤️</p>
+
+<p>Happy Birthday Mere Jigri Yaar 🎂🎉</p>
+            <p class="letter-sign">Happy Birthday Mere Jigri Yaar ❤️<br/>— Your Friend</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── TIMELINE ───────────────────────────────────────── -->
+    <section class="section timeline-section" id="timeline">
+      <div class="section-header">
+        <h2 class="section-title">Our Journey 🛤️</h2>
+        <p class="section-sub">From strangers to brothers</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item left reveal">
+          <div class="timeline-dot">🤝</div>
+          <div class="timeline-card glass-card">
+            <h3>First Meeting</h3>
+            <p>Ek anjaan si mulaqat thi, na koi khaas baat thi.
+             Dheere-dheere dosti badhti gayi aur aaj haal yeh hai ki zindagi ke har mod par tera saath sabse khaas lagta hai. ❤️.</p>
+          </div>
+        </div>
+        <div class="timeline-item right reveal">
+          <div class="timeline-dot">⭐</div>
+          <div class="timeline-card glass-card">
+            <h3>Best Memories</h3>
+            <p>Woh din kabhi nahi bhoolunga jab police meri scooty ka picha kar rahi thi.
+             aur tune khud pakde jaane ke baad bhi mujhe bacha liya tha. Yaar, uss din samajh aaya ki tu sirf dost nahi, bhai hai. ❤️🤝"</p>
+          </div>
+        </div>
+        <div class="timeline-item left reveal">
+          <div class="timeline-dot">😂</div>
+          <div class="timeline-card glass-card">
+            <h3>Funny Moments</h3>
+            <p>Teri sabse funny baat ye hai ki tujhe koi sharam hi nahi.
+                 Call karo to seedha bol deta hai 'tatti kar raha hu', aur college me class teacher aate hi chai wale ki awaaz nikal kar sabko hasa deta tha. 😂❤️</p>
+          </div>
+        </div>
+        <div class="timeline-item right reveal">
+          <div class="timeline-dot">🚀</div>
+          <div class="timeline-card glass-card">
+            <h3>Crazy Adventures</h3>
+            <p>Teacher se behas karna, unki baat ka jawab dena aur har baar koi na koi shararat sochna hamari aadat thi. 
+                College ke woh din aur woh pagalpan aaj bhi yaad karke hasi aa jaati hai. 😂🔥</p>
+          </div>
+        </div>
+        <div class="timeline-item left reveal">
+          <div class="timeline-dot">🌟</div>
+          <div class="timeline-card glass-card">
+            <h3>Future Goals Together</h3>
+            <p>Waqt badlega, raaste badlenge, lekin meri dua hai ki hamari dosti kabhi na badle. 
+                Chahe zindagi kahin bhi le jaaye, tu hamesha mera bhai aur sabse khaas dost rahega. ♾️❤️.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── MUSIC PLAYER ──────────────────────────────────── -->
+    <div class="music-player glass-card" id="musicPlayer">
+      <div class="music-album-art" id="albumArt">🎵</div>
+      <div class="music-info">
+        <span class="music-title" id="musicTitle">Yaaron Dosti</span>
+        <span class="music-artist">Friendship Playlist 🎶</span>
+      </div>
+      <div class="music-controls">
+        <button class="music-btn" id="prevSong">⏮</button>
+        <button class="music-btn play-btn" id="playPauseBtn">▶</button>
+        <button class="music-btn" id="nextSong">⏭</button>
+      </div>
+      <div class="music-visualizer" id="visualizer">
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- ── FINAL SURPRISE BUTTON ─────────────────────────── -->
+    <section class="section final-section">
+      <button class="final-btn glow-btn" id="finalSurpriseBtn">
+        <span class="btn-text">One Last Surprise ❤️</span>
+        <span class="btn-glow"></span>
+      </button>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FINAL SURPRISE OVERLAY
+  ============================================================ -->
+  <div id="finalOverlay" class="final-overlay hidden">
+    <canvas id="finalCanvas"></canvas>
+    <div class="final-messages">
+      <p class="final-msg" id="fm1">Thank You For Being My Best Friend</p>
+      <p class="final-msg" id="fm2">No Matter Where Life Takes Us...</p>
+      <p class="final-msg" id="fm3">You Will Always Be My Brother ❤️</p>
+      <p class="final-msg final-big" id="fm4">HAPPY BIRTHDAY ABHISHEK 🎂🎉</p>
+      <p class="final-forever" id="fm5">Friendship Forever ♾️</p>
+    </div>
+    <button class="close-final" id="closeFinal">✕ Close</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
